@@ -132,7 +132,7 @@ export function EmblaCarousel(
 
   function deActivate(): void {
     engine.dragHandler && engine.dragHandler.removeAllEvents()
-    engine.animation&& engine.animation.stop()
+    engine.animation && engine.animation.stop()
     eventStore.removeAll()
     root.classList.remove(options.draggableClass)
     container.style.transform = ''
