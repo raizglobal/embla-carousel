@@ -59,6 +59,7 @@ export function Engine(
 
   // Measurements
   const containerSize = rectWidth(container)
+  const viewportSize = rectWidth(root)
   const pxToPercent = PxToPercent(containerSize)
   const viewSize = pxToPercent.totalPercent
   const slideIndexes = arrayKeys(slides)
@@ -67,6 +68,7 @@ export function Engine(
   const snapSizes = groupedSizes.map(g => g.reduce((a, s) => a + s))
   const snapIndexes = arrayKeys(snapSizes)
   const contentSize = slideSizes.reduce((a, s) => a + s)
+
   const alignment = Alignment({ align, viewSize })
   const scrollSnap = ScrollSnap({ snapSizes, alignment, loop })
   const scrollContain = ScrollContain({
@@ -92,7 +94,7 @@ export function Engine(
   const indexPrevious = index.clone()
 
   // ScrollLimit
-  const scrollLimit = ScrollLimit({ loop, contentSize })
+  const scrollLimit = ScrollLimit({ loop, contentSize, isContained : containerSize <= viewportSize })
   const limit = scrollLimit.measure(scrollSnaps)
 
   // Draw

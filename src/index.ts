@@ -131,8 +131,8 @@ export function EmblaCarousel(
   }
 
   function deActivate(): void {
-    engine.dragHandler.removeAllEvents()
-    engine.animation.stop()
+    engine.dragHandler && engine.dragHandler.removeAllEvents()
+    engine.animation&& engine.animation.stop()
     eventStore.removeAll()
     root.classList.remove(options.draggableClass)
     container.style.transform = ''
@@ -241,7 +241,7 @@ export function EmblaCarousel(
 }
 
 export default EmblaCarousel
-export { UserOptions }
+//export { UserOptions }
 
 // @ts-ignore
 module.exports = EmblaCarousel
