@@ -17,7 +17,7 @@
   },
   "homepage": "https://github.com/raizglobal/embla-carousel/#readme",
   "files": [
-    "lib/**/*"
+    "src/**/*"
   ],
   "browserslist": "last 5 versions",
   "main": "lib/index.js",
